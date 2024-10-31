@@ -45,37 +45,3 @@ if new_notes != existing_notes:
     print("패치노트가 업데이트되었습니다.")
 else:
     print("새로운 패치노트가 없습니다.")
-2) GitHub Actions로 주기적으로 실행
-레포지토리 루트에 .github/workflows/update_patch_notes.yml 파일을 만듭니다.
-아래 내용을 복사해 붙여넣습니다. 이 설정은 하루에 한 번 스크립트를 실행해 새로운 패치노트가 있는지 확인합니다.
-yaml
-코드 복사
-name: Update Patch Notes
-
-on:
-  schedule:
-    - cron: '0 0 * * *'  # 매일 자정에 실행
-  workflow_dispatch:  # 수동 실행 가능
-
-jobs:
-  update-notes:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests beautifulsoup4 PyGithub
-
-      - name: Run patch notes updater
-        env:
-          GITHUB_TOKEN: ${{ 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 }}
-        run: sjlee/dbd-patch-notes
