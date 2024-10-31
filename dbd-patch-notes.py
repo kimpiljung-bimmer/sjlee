@@ -7,8 +7,8 @@ import os
 url = "https://forums.bhvr.com/dead-by-daylight/kb/patchnotes"
 
 # 2. GitHub 액세스 토큰 및 레포지토리 정보
-GITHUB_TOKEN = "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"  # 개인적으로 설정한 토큰으로 변경하세요
-REPO_NAME = "sjlee"  # 레포지토리 이름
+GITHUB_TOKEN = os.getenv("SJLEE")  # 개인적으로 설정한 토큰으로 변경하세요
+REPO_NAME = "sjlee/"  # 레포지토리 이름
 
 # 3. 기존 패치노트 파일 읽기
 def load_existing_notes():
