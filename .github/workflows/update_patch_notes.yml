@@ -25,5 +25,5 @@ jobs:
 
       - name: Run patch notes updater
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SJLEE: ${{ secrets.SJLEE }}
         run: sjlee/dbd-patch-notes.py
