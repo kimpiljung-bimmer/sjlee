@@ -26,4 +26,4 @@ jobs:
       - name: Run patch notes updater
         env:
           SJLEE: ${{ secrets.SJLEE }}
-        run: sjlee/dbd-patch-notes.py
+        run: /sjlee/dbd-patch-notes.py
